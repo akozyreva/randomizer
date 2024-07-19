@@ -24,8 +24,8 @@ def handle_click(event):
     label_generated_number.update_value(value=f"generated number is: {random.randint(int(num1), int(num2))}")
 
 
-num_input1 = NumInput("1 num")
-num_input2 = NumInput("2 num")
+num_input1 = NumInput("1 num", window)
+num_input2 = NumInput("2 num", window)
 label_generated_number = TextLabel(text=f"generated number is:")
 button.bind("<Button-1>", handle_click)
 button.pack()
