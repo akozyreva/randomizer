@@ -1,6 +1,8 @@
 import random
 import tkinter as tk
 
+from templates.InputNum import NumInput
+
 window = tk.Tk()
 window.title("Randomizer")
 window.geometry('300x200')
@@ -16,20 +18,14 @@ button = tk.Button(
 
 
 def handle_click(event):
-    num1 = entry.get()
-    num2 = entry2.get()
+    num1 = num_input1.get_input_value()
+    num2 = num_input2.get_input_value()
     print(num1, num2)
     label_generated_number.config(text=f"generated number is: {random.randint(int(num1), int(num2))}")
 
 
-label = tk.Label(text="1 num")
-label.pack()
-entry = tk.Entry(fg="white", bg="black", width=5)
-entry.pack()
-label2 = tk.Label(text="2 num")
-label2.pack()
-entry2 = tk.Entry(fg="white", bg="black", width=5)
-entry2.pack()
+num_input1 = NumInput("1 num")
+num_input2 = NumInput("2 num")
 label_generated_number = tk.Label(text=f"generated number is:")
 label_generated_number.pack()
 button.bind("<Button-1>", handle_click)
